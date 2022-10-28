@@ -11,5 +11,6 @@ namespace Album_Copa.IRepository
     public interface IFigurinhasRepository
     {
         public Task<List<Figurinhas>> GetFigurinhas();
+        public Task<Figurinhas> GetFigurinha(int id_figurinha);
     }
 }

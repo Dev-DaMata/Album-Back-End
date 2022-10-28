@@ -53,6 +53,23 @@ namespace Album_Copa.Controllers
 
         }
 
+        [HttpGet]
+        [Route("getFigurinhas/{id_figurinha}")]
+        public async Task<ActionResult<Figurinhas>> getFigurinha(int id_figurinha)
+        {
+            try
+            {
+                var data = await _figurinhasRepository.GetFigurinha(id_figurinha);
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "GetFigurinhas: Erro na requisição dos dados");
+                return new StatusCodeResult(500);
+            }
+
+        }
+
         #endregion
 
 

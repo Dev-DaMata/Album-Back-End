@@ -45,6 +45,22 @@ namespace Album_Copa.Repository
             return response;
         }
 
+        public async Task<Figurinhas> GetFigurinha(int id_figurinha)
+        {
+            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+
+
+            var param = new DynamicParameters();
+            param.Add("id_figurinha", id_figurinha, direction: ParameterDirection.Input);
+
+            var query = @"SELECT * FROM Figurinhas_copa(nolock) WHERE id_figurinha = @id_figurinha";
+
+            var response = await connection.QueryFirstAsync<Figurinhas>(query, param);
+
+            return response;
+
+        }
+
         #endregion
     }
 }
