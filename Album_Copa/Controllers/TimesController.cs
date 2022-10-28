@@ -69,6 +69,39 @@ namespace Album_Copa.Controllers
 
         }
 
+        [HttpPost]
+        [Route("createTime")]
+        public async Task<ActionResult<bool>> CreateTimes(Times model)
+        {
+            try
+            {
+                 var data = await _timesRepository.CreateTimes(model);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "CreateTime: Erro na requisição dos dados");
+                return false;
+            }
+
+        }
+
+        [HttpDelete]
+        [Route("deleteTime")]
+        public async Task<ActionResult<bool>> deleteTimes(int id_time)
+        {
+            try
+            {
+                var data = await _timesRepository.DeleteTimes(id_time);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "DeleteTime: Erro na requisição dos dados");
+                return false;
+            }
+        }
+
         #endregion
     }
 
