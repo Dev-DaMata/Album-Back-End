@@ -11,6 +11,6 @@ namespace Album_Copa.IRepository
     public interface IAtletasRepository
     {
         public Task<List<Atletas>> GetAtletas();
-        
+        public Task<Atletas> GetAtleta(int id_atleta);
     }
 }

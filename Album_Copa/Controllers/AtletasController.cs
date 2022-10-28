@@ -53,6 +53,23 @@ namespace Album_Copa.Controllers
 
         }
 
+        [HttpGet]
+        [Route("getAtleta/{id_atleta}")]
+        public async Task<ActionResult<Atletas>> getAtleta(int id_atleta)
+        {
+            try
+            {
+                var data = await _atletasRepository.GetAtleta(id_atleta);
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "GetAtleta: Erro na requisição dos dados");
+                return new StatusCodeResult(500);
+            }
+
+        }
+
         #endregion
 
 

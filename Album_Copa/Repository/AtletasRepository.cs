@@ -45,6 +45,23 @@ namespace Album_Copa.Repository
             return response;
         }
 
+
+        public async Task<Atletas> GetAtleta(int id_atleta)
+        {
+            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+
+
+            var param = new DynamicParameters();
+            param.Add("id_atleta", id_atleta, direction: ParameterDirection.Input);
+
+            var query = @"SELECT * FROM Atletas_copa(nolock) WHERE id_atleta = @id_atleta";
+
+            var response = await connection.QueryFirstAsync<Atletas>(query, param);
+
+            return response;
+
+        }
+
         #endregion
     }
 }
