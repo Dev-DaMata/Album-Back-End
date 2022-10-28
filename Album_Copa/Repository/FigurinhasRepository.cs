@@ -111,6 +111,35 @@ namespace Album_Copa.Repository
                 return false;
             }
         }
+        public async Task<bool> UpdateFigurinhas(Figurinhas model)
+        {
+            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+
+            var param = new DynamicParameters();
+
+            param.Add("id_figurinha", model.id_figurinha, direction: ParameterDirection.Input);
+            param.Add("foto", model.foto, direction: ParameterDirection.Input);
+            param.Add("id_time", model.id_time, direction: ParameterDirection.Input);
+            param.Add("id_atleta", model.id_atleta, direction: ParameterDirection.Input);
+
+            var query = @"UPDATE Figurinhas_copa SET
+                      foto = @foto,
+                      id_time = @id_time,
+                      id_atleta = @id_atleta
+                      WHERE
+                      id_figurinha = @id_figurinha";
+
+            var responde = await connection.ExecuteAsync(query, param);
+
+            if (responde > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         #endregion
     }

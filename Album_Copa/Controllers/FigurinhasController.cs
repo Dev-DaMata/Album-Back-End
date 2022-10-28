@@ -100,9 +100,24 @@ namespace Album_Copa.Controllers
                 return false;
             }
         }
+        [HttpPut]
+        [Route("updateFigurinhas")]
+        public async Task<ActionResult<bool>> updateFigurinhas(Figurinhas model)
+        {
+            try
+            {
+                var data = await _figurinhasRepository.UpdateFigurinhas(model);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "UpdateFigurinhas: Erro na requisição dos dados");
+                return false;
+            }
 
-        #endregion
 
-
+            #endregion
+        }
+        
+        }
     }
-}
