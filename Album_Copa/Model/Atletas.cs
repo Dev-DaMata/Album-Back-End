@@ -3,6 +3,7 @@
     public class Atletas
     {
         public int id_atleta { get; set; }
+        public int id_time { get; set; }
         public string foto { get; set; }
         public string nome { get; set; }
         public string pais { get; set; }

@@ -103,6 +103,22 @@ namespace Album_Copa.Controllers
                 return false;
             }
         }
+        
+        [HttpPut]
+        [Route("updateAtleta")]
+        public async Task<ActionResult<bool>> updateAtletas(Atletas model)
+        {
+            try
+            {
+                var data = await _atletasRepository.UpdateAtletas(model);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "UpdateAtletas: Erro na requisição dos dados");
+                return false;
+            }
+        }
 
     }
 }

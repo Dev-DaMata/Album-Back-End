@@ -70,12 +70,13 @@ namespace Album_Copa.Repository
             param.Add("nome", model.nome, direction: ParameterDirection.Input);
             param.Add("foto", model.foto, direction: ParameterDirection.Input);
             param.Add("pais", model.pais, direction: ParameterDirection.Input);
+            param.Add("id_time", model.id_time, direction: ParameterDirection.Input);
 
             var Id = "(SELECT isnull(max(id_atleta),0)+1 AS id_atleta FROM Atletas_copa(nolock))";
 
-            var query = $@"INSERT INTO Atletas_copa (id_atleta, foto, nome, pais)
+            var query = $@"INSERT INTO Atletas_copa (id_atleta, foto, nome, pais, id_time)
                     VALUES  
-                 ({Id}, @foto, @nome, @pais)";
+                 ({Id}, @foto, @nome, @pais, @id_time)";
 
             var response = await connection.ExecuteAsync(query, param);
 
@@ -101,6 +102,37 @@ namespace Album_Copa.Repository
 
             var response = await connection.ExecuteAsync(query, param);
             if (response > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public async Task<bool> UpdateAtletas(Atletas model)
+        {
+            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+
+            var param = new DynamicParameters();
+
+            param.Add("id_atleta", model.id_atleta, direction: ParameterDirection.Input);
+            param.Add("nome", model.nome, direction: ParameterDirection.Input);
+            param.Add("foto", model.foto, direction: ParameterDirection.Input);
+            param.Add("pais", model.pais, direction: ParameterDirection.Input);
+            param.Add("id_time", model.id_time, direction: ParameterDirection.Input);
+
+            var query = @"UPDATE Atletas_copa SET
+                      foto = @foto,
+                      nome = @nome,
+                      pais = @pais,
+                      id_time = @id_time
+                      WHERE
+                      id_atleta = @id_atleta";
+
+            var responde = await connection.ExecuteAsync(query, param);
+
+            if (responde > 0)
             {
                 return true;
             }
