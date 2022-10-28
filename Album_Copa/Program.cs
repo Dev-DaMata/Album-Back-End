@@ -11,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITimesRepository, TimesRepository>();
+builder.Services.AddScoped<IAtletasRepository, AtletasRepository>();
 
 
 
