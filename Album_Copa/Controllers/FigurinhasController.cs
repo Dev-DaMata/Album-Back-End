@@ -69,6 +69,22 @@ namespace Album_Copa.Controllers
             }
 
         }
+        [HttpPost]
+        [Route("createFigurinhas")]
+        public async Task<ActionResult<bool>> CreateFigurinhas(Figurinhas model)
+        {
+            try
+            {
+                var data = await _figurinhasRepository.CreateFigurinhas(model);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "CreateFigurinhas: Erro na requisição dos dados");
+                return false;
+            }
+
+        }
 
         #endregion
 
