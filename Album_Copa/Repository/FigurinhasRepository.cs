@@ -90,6 +90,27 @@ namespace Album_Copa.Repository
                 return false;
             }
         }
+        public async Task<bool> DeleteFigurinhas(int id_figurinhas)
+        {
+            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+
+            var param = new DynamicParameters();
+
+            param.Add("id_figurinha", id_figurinhas, direction: ParameterDirection.Input);
+
+
+            var query = @"DELETE FROM Figurinhas_copa WHERE id_figurinha = @id_figurinha";
+
+            var response = await connection.ExecuteAsync(query, param);
+            if (response > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         #endregion
     }

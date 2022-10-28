@@ -13,5 +13,6 @@ namespace Album_Copa.IRepository
         public Task<List<Figurinhas>> GetFigurinhas();
         public Task<Figurinhas> GetFigurinha(int id_figurinha);
         public Task<bool> CreateFigurinhas(Figurinhas model);
+        public Task<bool> DeleteFigurinhas(int id_figurinhas);
     }
 }

@@ -85,6 +85,21 @@ namespace Album_Copa.Controllers
             }
 
         }
+        [HttpDelete]
+        [Route("deleteFigurinhas")]
+        public async Task<ActionResult<bool>> deleteFigurinhas(int id_figurinhas)
+        {
+            try
+            {
+                var data = await _figurinhasRepository.DeleteFigurinhas(id_figurinhas);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "DeleteFigurinhas: Erro na requisição dos dados");
+                return false;
+            }
+        }
 
         #endregion
 
