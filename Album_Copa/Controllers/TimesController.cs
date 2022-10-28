@@ -26,15 +26,15 @@ namespace Album_Copa.Controllers
 
         public TimesController(IConfiguration config, ILogger<TimesController> logger, ITimesRepository timesRepository)
         {
-             _configuration = config;
-             _logger = logger;
-             _timesRepository = timesRepository;
-        }  
+            _configuration = config;
+            _logger = logger;
+            _timesRepository = timesRepository;
+        }
 
-            #endregion
+        #endregion
 
         #region Times
-        
+
         [HttpGet]
         [Route("getTimes")]
         public async Task<ActionResult<List<Times>>> getTimes()
@@ -75,7 +75,7 @@ namespace Album_Copa.Controllers
         {
             try
             {
-                 var data = await _timesRepository.CreateTimes(model);
+                var data = await _timesRepository.CreateTimes(model);
                 return data;
             }
             catch (Exception ex)
@@ -102,8 +102,23 @@ namespace Album_Copa.Controllers
             }
         }
 
-        #endregion
+        [HttpPut]
+        [Route("updateTime")]
+        public async Task<ActionResult<bool>> updateTimes(Times model)
+        {
+            try
+            {
+                var data = await _timesRepository.UpdateTimes(model);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "UpdateTimes: Erro na requisição dos dados");
+                return false;
+            }
+
+            #endregion
+        }
+
     }
-
-
 }

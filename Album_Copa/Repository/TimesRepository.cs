@@ -110,7 +110,33 @@ namespace Album_Copa.Repository
                 return false;
             }
         }
- 
+        public async Task<bool> UpdateTimes(Times model)
+        {
+            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+
+            var param = new DynamicParameters();
+
+            param.Add("id_time", model.id_time, direction: ParameterDirection.Input);
+            param.Add("foto_brasao", model.foto_brasao, direction: ParameterDirection.Input);
+            param.Add("nome_time", model.nome_time, direction: ParameterDirection.Input);
+
+            var query = @"UPDATE Times_copa SET
+                      foto_brasao = @foto_brasao,
+                      nome_time = @nome_time
+                      WHERE
+                      id_time = @id_time";
+
+            var responde = await connection.ExecuteAsync(query, param);
+
+            if(responde > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
         #endregion

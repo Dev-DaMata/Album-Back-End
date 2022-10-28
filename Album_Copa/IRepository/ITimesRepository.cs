@@ -14,6 +14,6 @@ namespace Album_Copa.IRepository
         public Task<Times> GetTime(int id_time);
         public Task<bool> CreateTimes(Times model);
         public Task<bool> DeleteTimes(int id_time);
-       
+        public Task<bool> UpdateTimes(Times model);
     }
 }
