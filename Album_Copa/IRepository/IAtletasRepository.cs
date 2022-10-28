@@ -12,5 +12,6 @@ namespace Album_Copa.IRepository
     {
         public Task<List<Atletas>> GetAtletas();
         public Task<Atletas> GetAtleta(int id_atleta);
+        public Task<bool> CreateAtletas(Atletas model);
     }
 }

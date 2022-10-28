@@ -45,7 +45,6 @@ namespace Album_Copa.Repository
             return response;
         }
 
-
         public async Task<Atletas> GetAtleta(int id_atleta)
         {
             using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
@@ -62,6 +61,35 @@ namespace Album_Copa.Repository
 
         }
 
+        public async Task<bool> CreateAtletas(Atletas model)
+        {
+
+            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+
+            var param = new DynamicParameters();
+
+            param.Add("id_atleta", model.id_atleta, direction: ParameterDirection.Input);
+            param.Add("nome", model.nome, direction: ParameterDirection.Input);
+            param.Add("foto", model.foto, direction: ParameterDirection.Input);
+            param.Add("pais", model.pais, direction: ParameterDirection.Input);
+
+            var Id = "(SELECT isnull(max(id_atleta),0)+1 AS id_atleta FROM Atletas_copa(nolock))";
+
+            var query = $@"INSERT INTO Atletas_copa (id_atleta, foto, nome, pais)
+                    VALUES  
+                 ({Id}, @foto, @nome, @pais)";
+
+            var response = await connection.ExecuteAsync(query, param);
+
+            if (response > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
     }
 }

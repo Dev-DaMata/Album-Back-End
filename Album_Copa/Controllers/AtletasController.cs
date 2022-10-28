@@ -70,6 +70,22 @@ namespace Album_Copa.Controllers
 
         }
 
+        [HttpPost]
+        [Route("createAtletas")]
+        public async Task<ActionResult<bool>> CreateAtletas(Atletas model)
+        {
+            try
+            {
+                var data = await _atletasRepository.CreateAtletas(model);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "CreateAtletas: Erro na requisição dos dados");
+                return false;
+            }
+
+        }
         #endregion
 
 
