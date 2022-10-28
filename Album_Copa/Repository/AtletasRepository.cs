@@ -44,7 +44,6 @@ namespace Album_Copa.Repository
 
             return response;
         }
-
         public async Task<Atletas> GetAtleta(int id_atleta)
         {
             using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
@@ -60,7 +59,6 @@ namespace Album_Copa.Repository
             return response;
 
         }
-
         public async Task<bool> CreateAtletas(Atletas model)
         {
 
@@ -81,6 +79,27 @@ namespace Album_Copa.Repository
 
             var response = await connection.ExecuteAsync(query, param);
 
+            if (response > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public async Task<bool> DeleteAtletas(int id_atleta)
+        {
+            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+
+            var param = new DynamicParameters();
+
+            param.Add("id_atleta", id_atleta, direction: ParameterDirection.Input);
+
+
+            var query = @"DELETE FROM Atletas_copa WHERE id_atleta = @id_atleta";
+
+            var response = await connection.ExecuteAsync(query, param);
             if (response > 0)
             {
                 return true;

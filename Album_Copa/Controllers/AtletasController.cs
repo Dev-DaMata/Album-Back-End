@@ -88,6 +88,21 @@ namespace Album_Copa.Controllers
         }
         #endregion
 
+        [HttpDelete]
+        [Route("deleteAtleta")]
+        public async Task<ActionResult<bool>> deleteAtletas(int id_atleta)
+        {
+            try
+            {
+                var data = await _atletasRepository.DeleteAtletas(id_atleta);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "DeleteTime: Erro na requisição dos dados");
+                return false;
+            }
+        }
 
     }
 }
