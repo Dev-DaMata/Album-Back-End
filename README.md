@@ -116,3 +116,30 @@ Esquema da resposta:
 ⚠️ As imagens foram convertidas para base 64!
 
 ---
+- **POST /Times/createTime**
+
+Adicione novos times no banco de dados
+
+Esquema da requisição:
+
+>https://localhost:7128/Times/createTime
+
+No request body:
+
+```json
+{
+  "id_time": 0,
+  "foto_brasao": "aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw/c2E9aSZ1cmw9aHR0cHMlM0ElMkYlMkZtYW50b3Nkb2Z1dGVib2wuY29tLmJyJTJGMjAyMiUyRjA4JTJGY2FtaXNhcy1lcXVhZG9yLWNvcGEtbXVuZG8tMjAyMi1tYXJhdGhvbiUyRiZwc2lnPUFPdlZhdzJjeV96a2U0T25tSU1xYmcyYm45dUcmdXN0PTE2NjczMjE4MDEyMjYwMDAmc291cmNlPWltYWdlcyZjZD12ZmUmdmVkPTBDQXdRalJ4cUZ3b1RDS2ktMi03M2l2c0NGUUFBQUFBZEFBQUFBQkFF",
+  "nome_time": "Equador"
+}
+```
+
+Esquema da resposta:
+
+```json
+True
+```
+⚠️Não se esqueça de adicionar as imagens no formato de base 64
+
+---
+
