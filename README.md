@@ -152,7 +152,7 @@ Esquema da requisição:
 
 No request body:
 
-````json
+```json
   {
     "id_time": 3,
     "foto_brasao": "aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw/c2E9aSZ1cmw9aHR0cHMlM0ElMkYlMkZwdC53aWtpcGVkaWEub3JnJTJGd2lraSUyRlNlbGUlMjVDMyUyNUE3JTI1QzMlMjVBM29fQ2F0YXJpX2RlX0Z1dGVib2wmcHNpZz1BT3ZWYXcxRnFWX2wzTjZLdGZhMTFvdTNXZkpkJnVzdD0xNjY3MzIwMTYxMzc1MDAwJnNvdXJjZT1pbWFnZXMmY2Q9dmZlJnZlZD0wQ0EwUWpSeHFGd29UQ0tDSmx1SHhpdnNDRlFBQUFBQWRBQUFBQUJBRQ==",
@@ -165,6 +165,22 @@ Esquema da resposta:
 True
 ```
 ---
+- **DELETE /Times/deleteTime**
 
+Exclua os times do banco de dados 
 
+Esquema da requisição:
 
+>https://localhost:7128/Times/deleteTime?id_time=5
+
+Nos Parameters:
+
+```json
+5
+```
+
+Esquema da resposta:
+
+```json
+True
+```
