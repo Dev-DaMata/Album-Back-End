@@ -95,3 +95,24 @@ Esquema da resposta:
 ⚠️ As imagens foram convertidas para base 64!
 
 ---
+
+- **GET /Times/getTimes/{id_time}**
+
+Confira um time em específico pelo id do mesmo cadastrado no banco de dados
+
+Esquema da requisição:
+
+>https://localhost:7128/Times/getTime/3
+
+Esquema da resposta:
+
+```json
+{
+  "id_time": 3,
+  "foto_brasao": "aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw/c2E9aSZ1cmw9aHR0cHMlM0ElMkYlMkZwdC53aWtpcGVkaWEub3JnJTJGd2lraSUyRlNlbGUlMjVDMyUyNUE3JTI1QzMlMjVBM29fQ2F0YXJpX2RlX0Z1dGVib2wmcHNpZz1BT3ZWYXcxRnFWX2wzTjZLdGZhMTFvdTNXZkpkJnVzdD0xNjY3MzIwMTYxMzc1MDAwJnNvdXJjZT1pbWFnZXMmY2Q9dmZlJnZlZD0wQ0EwUWpSeHFGd29UQ0tDSmx1SHhpdnNDRlFBQUFBQWRBQUFBQUJBRQ==",
+  "nome_time": "Qatar"
+}
+```
+⚠️ As imagens foram convertidas para base 64!
+
+---
