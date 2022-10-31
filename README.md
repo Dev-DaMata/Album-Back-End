@@ -142,4 +142,29 @@ True
 ⚠️Não se esqueça de adicionar as imagens no formato de base 64
 
 ---
+- **PUT Times/updateTime**
+
+Atualize as informações dos time 
+
+Esquema da requisição:
+
+>https://localhost:7128/Times/updateTime
+
+No request body:
+
+````json
+  {
+    "id_time": 3,
+    "foto_brasao": "aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw/c2E9aSZ1cmw9aHR0cHMlM0ElMkYlMkZwdC53aWtpcGVkaWEub3JnJTJGd2lraSUyRlNlbGUlMjVDMyUyNUE3JTI1QzMlMjVBM29fQ2F0YXJpX2RlX0Z1dGVib2wmcHNpZz1BT3ZWYXcxRnFWX2wzTjZLdGZhMTFvdTNXZkpkJnVzdD0xNjY3MzIwMTYxMzc1MDAwJnNvdXJjZT1pbWFnZXMmY2Q9dmZlJnZlZD0wQ0EwUWpSeHFGd29UQ0tDSmx1SHhpdnNDRlFBQUFBQWRBQUFBQUJBRQ==",
+    "nome_time": "Qatar"
+  }
+```
+Esquema da resposta:
+
+```json
+True
+```
+---
+
+
 
