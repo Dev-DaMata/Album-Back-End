@@ -64,3 +64,34 @@ CREATE TABLE Times_copa (
     nome_time varchar(50)
 )
 ```
+# 🛣️ Rotas
+
+### ⚽ Times
+
+- **GET /Times/getTimes**
+
+Confira os times resgistrados no banco de dados
+
+Esquema da requisição:
+
+>https://localhost:7128/Times/getTimes
+
+Esquema da resposta:
+
+```json
+[
+  {
+    "id_time": 2,
+    "foto_brasao": "aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw/c2E9aSZ1cmw9aHR0cHMlM0ElMkYlMkZ3d3cuY29ycmVpb2JyYXppbGllbnNlLmNvbS5iciUyRmVzcG9ydGVzJTJGMjAyMiUyRjA4JTJGNTAzMDMxOS1jb20tY3JvbW9zLWVzcGVjaWFpcy1hbGJ1bS1kYS1jb3BhLTIwMjItY2hlZ2EtYXMtYmFuY2FzLW5lc3RhLXNleHRhLmh0bWwmcHNpZz1BT3ZWYXcyM00xVlEzZUNfOVpxaTY5R2dNeVptJnVzdD0xNjY3MDUzNDM3NjU3MDAwJnNvdXJjZT1pbWFnZXMmY2Q9dmZlJnZlZD0wQ0EwUWpSeHFGd29UQ0lDZ3VKR1FnX3NDRlFBQUFBQWRBQUFBQUJBRQ==",
+    "nome_time": "Brasil"
+  },
+  {
+    "id_time": 3,
+    "foto_brasao": "aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw/c2E9aSZ1cmw9aHR0cHMlM0ElMkYlMkZwdC53aWtpcGVkaWEub3JnJTJGd2lraSUyRlNlbGUlMjVDMyUyNUE3JTI1QzMlMjVBM29fQ2F0YXJpX2RlX0Z1dGVib2wmcHNpZz1BT3ZWYXcxRnFWX2wzTjZLdGZhMTFvdTNXZkpkJnVzdD0xNjY3MzIwMTYxMzc1MDAwJnNvdXJjZT1pbWFnZXMmY2Q9dmZlJnZlZD0wQ0EwUWpSeHFGd29UQ0tDSmx1SHhpdnNDRlFBQUFBQWRBQUFBQUJBRQ==",
+    "nome_time": "Qatar"
+  }
+]
+```
+⚠️ As imagens foram convertidas para base 64!
+
+---
